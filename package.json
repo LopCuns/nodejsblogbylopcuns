@@ -1,0 +1,37 @@
+{
+  "name": "nodejstemplate",
+  "version": "1.0.0",
+  "description": "Simple Nodejs template",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.js --fix",
+    "dev": "nodemon src/index.js",
+    "prettier": "prettier --write .",
+    "prepare": "husky install",
+    "postinstall": "npm run prepare"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LopCuns/NODEJSTEMPLATE.git"
+  },
+  "author": "LopCuns",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LopCuns/NODEJSTEMPLATE/issues"
+  },
+  "homepage": "https://github.com/LopCuns/NODEJSTEMPLATE#readme",
+  "devDependencies": {
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2",
+    "nodemon": "2.0.22",
+    "prettier": "2.8.8",
+    "standard": "17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  },
+  "lint-staged":{
+    "*.js" : "eslint --fix",
+    "*.{js,md}": "prettier --write"
+  }
+}
