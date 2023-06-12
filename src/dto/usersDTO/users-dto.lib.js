@@ -15,7 +15,7 @@ export const usernameDTO = {
   errorMessage: {
     type: 'username debe ser de tipo string',
     minLength: 'username debe contener al menos 4 caracteres',
-    maxLength: 'username de usuario debe contener un máximo de 15 caracteres'
+    maxLength: 'username debe contener un máximo de 15 caracteres'
   }
 }
 
