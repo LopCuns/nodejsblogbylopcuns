@@ -5,11 +5,11 @@ import userErrors from '#Errors/users.errors.js'
 
 const userUpdatePasswordController = async (req, res) => {
   // Obtener el _id de la request
-  const { _id } = req
+  const { userId } = req
   // Obtener la contraseña actual y la nueva contraseña del body de la request
   const { oldPassword, newPassword } = req.body
   // Obtener el usuario por su _id
-  const user = await UserModel.findById(_id).exec()
+  const user = await UserModel.findById(userId).exec()
   // Si no existe dicho usuario,entonces se devuelve un error 401 ( No autorizado )
   if (!user) return res.status(401).send(userErrors[401])
   // Comprobar si la contraseña es la correcta

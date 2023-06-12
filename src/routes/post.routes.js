@@ -4,11 +4,12 @@ import createPostDTO from '#Dto/postsDTO/post-create.dto.js'
 import commentPostDTO from '#Dto/postsDTO/posts-comment.dto.js'
 import modifyPostDTO from '#Dto/postsDTO/posts-modify.dto.js'
 import getPostDTO from '#Dto/postsDTO/posts-get.dto.js'
+import createPostController from '#Controllers/posts/posts-create.controller.js'
 
 const postsRouter = express.Router()
 // ENDPOINTS
 // Crear un nuevo post
-postsRouter.post('/create', verifyJWT, createPostDTO)
+postsRouter.post('/create', verifyJWT, createPostDTO, createPostController)
 // Dar me gusta a un post
 postsRouter.post('/like/:postId', verifyJWT)
 // Quitar me gusta a un post

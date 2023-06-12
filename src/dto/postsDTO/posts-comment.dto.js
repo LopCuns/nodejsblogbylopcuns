@@ -1,7 +1,4 @@
-import {
-  _idDTO,
-  contentDTO
-} from './posts-dto.lib.js'
+import { _idDTO, contentDTO } from './posts-dto.lib.js'
 import Ajv from 'ajv'
 import ajvErrors from 'ajv-errors'
 import addFormats from 'ajv-formats'

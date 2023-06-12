@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 // Esquema del post
 const postSchema = mongoose.Schema({
-  _id: { String, _id: false },
+  _id: { type: String, _id: false },
   authorId: String,
   title: String,
   content: String,

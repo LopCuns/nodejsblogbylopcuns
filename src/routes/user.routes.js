@@ -8,7 +8,7 @@ import verifyJWT from '#Dto/verifyJWT.dto.js'
 import userRegisterController from '#Controllers/users/user-register.controller.js'
 import userLoginController from '#Controllers/users/user-login.controller.js'
 import userProfileController from '#Controllers/users/user-profile.controller.js'
-import userUpdateUsernameController from '#Controllers/user-updateUsername.controller.js'
+import userUpdateUsernameController from '#Controllers/users/user-updateUsername.controller.js'
 import userUpdateEmailController from '#Controllers/users/user-updateEmail.controller.js'
 import userUpdatePasswordController from '#Controllers/users/user-updatePassword.controller.js'
 

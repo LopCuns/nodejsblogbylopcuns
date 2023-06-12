@@ -1,6 +1,4 @@
-import {
-  titleDTO
-} from './posts-dto.lib.js'
+import { titleDTO } from './posts-dto.lib.js'
 import Ajv from 'ajv'
 import ajvErrors from 'ajv-errors'
 

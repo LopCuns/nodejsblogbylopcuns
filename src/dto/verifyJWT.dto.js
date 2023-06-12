@@ -15,7 +15,7 @@ const verifyJWT = async (req, res, next) => {
       encoder.encode(process.env.JWT_SECRET)
     )
     // Pasar el id del usuario a la request
-    req._id = payload._id
+    req.userId = payload._id
     // Pasar el control al controller
     return next()
   } catch {
