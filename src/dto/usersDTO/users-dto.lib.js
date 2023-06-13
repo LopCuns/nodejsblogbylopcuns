@@ -57,3 +57,12 @@ export const postsDTO = {
   },
   errorMessage: 'posts debe ser un arreglo de strings'
 }
+
+export const likedPostsDTO = {
+  type: 'array',
+  items: {
+    type: 'string',
+    format: 'uuid'
+  },
+  errorMessage: 'likedPosts debe ser un arrego de strings'
+}

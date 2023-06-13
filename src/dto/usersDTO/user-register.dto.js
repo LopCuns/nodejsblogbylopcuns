@@ -4,7 +4,8 @@ import {
   emailDTO,
   passwordDTO,
   roleDTO,
-  postsDTO
+  postsDTO,
+  likedPostsDTO
 } from './users-dto.lib.js'
 import Ajv from 'ajv'
 import ajvErrors from 'ajv-errors'
@@ -19,9 +20,18 @@ const userRegisterSchema = {
     email: emailDTO,
     password: passwordDTO,
     role: roleDTO,
-    posts: postsDTO
+    posts: postsDTO,
+    likedPosts: likedPostsDTO
   },
-  required: ['_id', 'username', 'email', 'password', 'role', 'posts'],
+  required: [
+    '_id',
+    'username',
+    'email',
+    'password',
+    'role',
+    'posts',
+    'likedPosts'
+  ],
   additionalProperties: false,
   errorMessage: {
     required: {
@@ -31,7 +41,8 @@ const userRegisterSchema = {
       password:
         'password es requerida para realizar esta operación es requerido para realizar esta operación',
       role: 'role es requerido para realizar esta operación',
-      posts: 'posts son requeridos para realizar esta operación'
+      posts: 'posts son requeridos para realizar esta operación',
+      likedPosts: 'likedPosts es requerido para realizar esta operación'
     },
     additionalProperties: 'No se permiten propiedades adicionales'
   }

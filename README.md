@@ -11,6 +11,7 @@ Simple blog developed usign Nodejs,Express and mongoDB.
   - email: Correo electrónico del usuario
   - password: Contraseña del usuario
   - posts: Cada uno de los posts publicados por el usuario
+  - likedPosts: \_id de todos los posts a los que el usuario les ha dado me gusta
 - Post: Publicación registrada en la plataforma,todos los campos son obligatorios
   - \_id: Identificador del post
   - author: Autor del post

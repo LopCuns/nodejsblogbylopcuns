@@ -6,7 +6,8 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   role: { type: String, required: true },
-  posts: { type: Array }
+  posts: { type: Array },
+  likedPosts: { type: Array }
 })
 // Modelo de usuario en mongoDB
 const UserModel = mongoose.model('usermodel', userSchema)
