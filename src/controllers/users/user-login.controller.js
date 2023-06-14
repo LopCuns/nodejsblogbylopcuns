@@ -1,7 +1,7 @@
 import UserModel from '#Schemas/user.schema.js'
 import { compare } from 'bcrypt'
 import { SignJWT } from 'jose'
-import userErrors from '#Errors/users.errors.js'
+import { userNotFound, badCredentials } from '#Errors/users.errors.js'
 // Controlador del login de usuario
 const userLoginController = async (req, res) => {
   // Obtener email y contraseña del body
@@ -9,11 +9,11 @@ const userLoginController = async (req, res) => {
   // Obtener usuario de la base de datos
   const user = await UserModel.findOne({ email }).exec()
   // Si no se encuentra un usuario con ese email,se deveulve un código 401 ( No autorizado )
-  if (!user) return res.status(401).send(userErrors[401])
+  if (!user) return userNotFound(res)
   // Se comprueba que la contraseña sea correct
   const isValidPassword = await compare(password, user.password)
   // Si la contraseña no es correcta,se devuleve un código 401 ( No autorizado )
-  if (!isValidPassword) return res.status(401).send(userErrors[401])
+  if (!isValidPassword) return badCredentials(res)
   // Instancia del TextEncoder para pasar el JWT secret al formato requerido por la libreria
   const encoder = new TextEncoder()
   // Crear un jwt con el id del usuario en su body

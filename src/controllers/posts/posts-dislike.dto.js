@@ -1,8 +1,6 @@
-import {
-  getUserById,
-  getPostById
-} from '#Controllers/posts/post-lib.controller.js'
-import userErrors from '#Errors/users.errors.js'
+import { getUserById, getPostById } from '../lib.controller.js'
+import { notAuthorized } from '#Errors/users.errors.js'
+import { postNotFound } from '#Errors/posts.errors.js'
 
 const dislikePostController = async (req, res) => {
   // Obtener el postId de los parámetros de la request
@@ -12,24 +10,20 @@ const dislikePostController = async (req, res) => {
   // Comprobar que el usuario exista
   const user = await getUserById(userId)
   // Si el usuario no existe, entonces enviar un error 401 ( No autorizado )
-  if (!user) return res.status(401).send(userErrors[401])
+  if (!user) return notAuthorized(res)
   // Obtener el post de la base de datos
   const post = await getPostById(postId)
   // Si el post no existe,entonces delbolver un error 404 ( No encontrado )
   if (!post) {
-    return res
-      .status(404)
-      .send({ errors: `Post con _id ${postId} no encontrado` })
+    return postNotFound(res, `Post con _id ${postId} no encontrado`)
   }
   // Comprobar que el usuario le haya dado me gusta a el post con anterioridad
   const hadUserLikePost = user.likedPosts.find(
     (likedPostId) => likedPostId === postId
   )
-  // Si el usuario no le ha dado me gusta al post previamente, entonces devolver un error 400 ( Petición mala )
+  // Si el usuario no le ha dado me gusta al post previamente, entonces devolver un error 404 ( No encontrado )
   if (!hadUserLikePost) {
-    return res
-      .status(400)
-      .send({ errors: 'No le has dado me gusta a este post' })
+    return postNotFound(res, 'No le has dado me gusta a este post')
   }
   // Restar un me gusta al post
   post.likes += -1
@@ -40,6 +34,6 @@ const dislikePostController = async (req, res) => {
   // Guardar los cambios en el usuario
   await user.save()
   // Enviar una respuesta satisfactoria
-  return res.send('Has retirado tu me gusta del post')
+  return res.send({ successMessage: 'Has retirado tu me gusta del post' })
 }
 export default dislikePostController

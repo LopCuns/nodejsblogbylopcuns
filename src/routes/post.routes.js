@@ -3,11 +3,11 @@ import verifyJWT from '#Dto/verifyJWT.dto.js'
 import createPostDTO from '#Dto/postsDTO/post-create.dto.js'
 import commentPostDTO from '#Dto/postsDTO/posts-comment.dto.js'
 import modifyPostDTO from '#Dto/postsDTO/posts-modify.dto.js'
-import getPostDTO from '#Dto/postsDTO/posts-get.dto.js'
 import emptyBodyDTO from '#Dto/emptyBody.dto.js'
 import createPostController from '#Controllers/posts/posts-create.controller.js'
 import likePostController from '#Controllers/posts/posts-like.controller.js'
 import dislikePostController from '#Controllers/posts/posts-dislike.dto.js'
+import getLikedPostsController from '#Controllers/posts/post-getLiked.controller.js'
 import commentPostController from '#Controllers/posts/post-comment.controller.js'
 import deleteCommentPostController from '#Controllers/posts/post-deleteComment.controller.js'
 import editCommentPostController from '#Controllers/posts/post-editComment.controller.js'
@@ -29,6 +29,8 @@ postsRouter.post(
   emptyBodyDTO,
   dislikePostController
 )
+// Obtener los posts a los que el usuario ha dado me gusta
+postsRouter.get('/liked', verifyJWT, emptyBodyDTO, getLikedPostsController)
 // Comentar en un post
 postsRouter.post(
   '/comment/:postId',
@@ -63,7 +65,7 @@ postsRouter.delete(
   verifyJWT,
   emptyBodyDTO,
   deletePostController
-) // TODO CONTROLLER
+)
 // Obtener un post por su _id
 postsRouter.get(
   '/get-byid/:postId',
@@ -72,6 +74,6 @@ postsRouter.get(
   getPostByIdController
 )
 // Obtener un post por su autor y título
-postsRouter.get('/get', getPostDTO, getPostByAuthorTitleController) // TODO CONTROLLER
+postsRouter.get('/get', emptyBodyDTO, getPostByAuthorTitleController)
 
 export default postsRouter
