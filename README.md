@@ -35,6 +35,28 @@ Simple blog developed usign Nodejs,Express and mongoDB.
 - Los posts podrán ser buscados por su \_id o por su título y autor
 - El o los usuarios con el "role" de admin deberán ser capaces de banear a cualquier usuario dentro de la plataforma
 
+#Endpoints
+
+Server on Render --> https://jlblog.onrender.com
+- /user
+  - /register --> Registrar un usuario
+  - /login --> Iniciar sesión (devuelve un JWT)
+  - /profile --> Obtener el perfil del usuario
+  - /update-username --> Editar el username
+  - /update-email --> Editar el email
+  - /update-password --> Editar la contraseña
+  - /unregister --> Eliminar usuario
+- /posts
+  - /create --> Crear un post
+  - /like/:postId --> Dar me gusta a un post
+  - /liked --> Obtener posts a los que se ha dado me gusta
+  - /comment/:postId --> Comentar en un post
+  - /comment-delete/:postId --> Eliminar el comentario publicado en un post
+  - /modify/:postId --> Modificar un post
+  - /delte/:postId --> Eliminar un post
+  - /get-byid/:postId --> Obtener un post por su _id
+  - /get?author:authorUsername&title=postTitle --> Obtener un post por el username de su autor y el título del post
+
 # Tecnologías empleadas
 
 - Nodejs :Programación
