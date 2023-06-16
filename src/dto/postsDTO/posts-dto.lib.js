@@ -21,11 +21,11 @@ const titleDTO = {
 const contentDTO = {
   type: 'string',
   minLength: 1,
-  maxLength: 280,
+  maxLength: 2000,
   errorMessage: {
     type: 'content debe ser de tipo string',
     minLength: 'content debe tener al menos 1 caracter',
-    maxLength: 'content no debe tener más de 280 caracteres'
+    maxLength: 'content no debe tener más de 2000 caracteres'
   }
 }
 
