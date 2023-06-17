@@ -7,7 +7,7 @@ const createPostController = async (req, res) => {
   // Obtener el authorId de la request
   const authorId = req.userId
   // Obtener los datos del post de la request
-  const { _id, title, content, likes, comments } = req.body
+  const { _id, title, content, likes, comments, date } = req.body
   // Obetener el usuario autor del post
   const user = await getUserById(authorId)
   // Si el usuario no existe, entonces enviar un error 401 ( No autorizado )
@@ -38,7 +38,8 @@ const createPostController = async (req, res) => {
     title,
     content,
     likes,
-    comments
+    comments,
+    date
   })
   // Guardar los cambios
   await newPost.save()

@@ -9,6 +9,7 @@ import verifyJWT from '#Dto/verifyJWT.dto.js'
 import userRegisterController from '#Controllers/users/user-register.controller.js'
 import userLoginController from '#Controllers/users/user-login.controller.js'
 import userProfileController from '#Controllers/users/user-profile.controller.js'
+import userGetUsernameController from '#Controllers/users/user-getUsername.controller.js'
 import userUpdateUsernameController from '#Controllers/users/user-updateUsername.controller.js'
 import userUpdateEmailController from '#Controllers/users/user-updateEmail.controller.js'
 import userUpdatePasswordController from '#Controllers/users/user-updatePassword.controller.js'
@@ -23,6 +24,12 @@ userRouter.post('/register', userRegisterDTO, userRegisterController)
 userRouter.post('/login', userLoginDTO, userLoginController)
 // Obtener datos de usuario
 userRouter.get('/profile', verifyJWT, emptyBodyDTO, userProfileController)
+// Obtener el username por _id
+userRouter.get(
+  '/get-username/:userId',
+  emptyBodyDTO,
+  userGetUsernameController
+)
 // Cambiar nombre de usuario
 userRouter.patch(
   '/update-username',

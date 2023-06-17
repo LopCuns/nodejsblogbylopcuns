@@ -42,6 +42,7 @@ Server on Render --> https://jlblog.onrender.com
   - /register --> Registrar un usuario
   - /login --> Iniciar sesión (devuelve un JWT)
   - /profile --> Obtener el perfil del usuario
+  - /get-username/:userId --> Obtener el nombre de usuario por su _id
   - /update-username --> Editar el username
   - /update-email --> Editar el email
   - /update-password --> Editar la contraseña
@@ -55,6 +56,7 @@ Server on Render --> https://jlblog.onrender.com
   - /modify/:postId --> Modificar un post
   - /delte/:postId --> Eliminar un post
   - /get-byid/:postId --> Obtener un post por su _id
+  - /get-byauthor/:authorId --> Obtener los posts publicados por un usuario
   - /get?author:authorUsername&title=postTitle --> Obtener un post por el username de su autor y el título del post
 
 # Tecnologías empleadas

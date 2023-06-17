@@ -7,7 +7,8 @@ const postSchema = mongoose.Schema({
   title: String,
   content: String,
   likes: Number,
-  comments: [{ authorId: String, content: String }]
+  comments: [{ authorId: String, content: String }],
+  date: String
 })
 // Modelo de post
 const PostModel = mongoose.model('post', postSchema)

@@ -14,6 +14,7 @@ import editCommentPostController from '#Controllers/posts/post-editComment.contr
 import modifyPostController from '#Controllers/posts/post-modify.controller.js'
 import deletePostController from '#Controllers/posts/post-delete.controller.js'
 import getPostByIdController from '#Controllers/posts/post-getById.controller.js'
+import getPostsByAuthorController from '#Controllers/posts/post-getByAuthor.controller.js'
 import getPostByAuthorTitleController from '#Controllers/posts/post-getByAuthorTitle.controller.js'
 
 const postsRouter = express.Router()
@@ -72,6 +73,12 @@ postsRouter.get(
   verifyJWT,
   emptyBodyDTO,
   getPostByIdController
+)
+// Obtener los posts publicados por un usuario
+postsRouter.get(
+  '/get-byauthor/:authorId',
+  emptyBodyDTO,
+  getPostsByAuthorController
 )
 // Obtener un post por su autor y título
 postsRouter.get('/get', emptyBodyDTO, getPostByAuthorTitleController)

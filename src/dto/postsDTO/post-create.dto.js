@@ -3,7 +3,8 @@ import {
   titleDTO,
   contentDTO,
   likesDTO,
-  commentsDTO
+  commentsDTO,
+  dateDTO
 } from './posts-dto.lib.js'
 import Ajv from 'ajv'
 import ajvErrors from 'ajv-errors'
@@ -17,9 +18,10 @@ const createPostSchema = {
     title: titleDTO,
     content: contentDTO,
     likes: likesDTO,
-    comments: commentsDTO
+    comments: commentsDTO,
+    date: dateDTO
   },
-  required: ['_id', 'title', 'content', 'likes', 'comments'],
+  required: ['_id', 'title', 'content', 'likes', 'comments', 'date'],
   additionalProperties: false,
   errorMessage: {
     required: {
@@ -27,15 +29,16 @@ const createPostSchema = {
       title: 'title es requerido para realizar esta operación',
       content: 'content es requerido para realizar esta operación',
       likes: 'likes es requerido para realizar esta operación',
-      comments: 'comments es requerido para realizar esta operación'
+      comments: 'comments es requerido para realizar esta operación',
+      date: 'date es requerido para realizar esta operación'
     },
     additionalProperties: 'No se admiten propiedades adicionales'
   }
 }
 // Instancia de Ajv
 const ajv = new Ajv({ allErrors: true })
-// Añadir formato uuid4 a ajv
-addFormats(ajv, ['uuid'])
+// Añadir formatos uuid4 y date a ajv
+addFormats(ajv, ['uuid', 'date'])
 // Añadir errores a ajv
 ajvErrors(ajv)
 // Compilar el esquema para crear un validador de DTO

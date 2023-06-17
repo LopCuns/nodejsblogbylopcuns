@@ -54,4 +54,13 @@ const commentsDTO = {
   errorMessage: 'comments debe ser del tipo array'
 }
 
-export { _idDTO, titleDTO, contentDTO, likesDTO, commentsDTO }
+const dateDTO = {
+  type: 'string',
+  format: 'date',
+  errorMessage: {
+    type: 'date debe ser de tipo string',
+    format: 'date debe cumplir con el formato full date RFC3339'
+  }
+}
+
+export { _idDTO, titleDTO, contentDTO, likesDTO, commentsDTO, dateDTO }

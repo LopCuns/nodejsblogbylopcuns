@@ -17,10 +17,11 @@ const deletePostController = async (req, res) => {
   if (!post) {
     return postNotFound(res, `Post con _id ${postId} no encontrado`)
   }
-  // Comprobar que el editor sea el autor del post
+  // Comprobar que el editor sea el autor del post o tenga el role de admin
   const isEditorAuthor = user._id === post.authorId
-  // Si el editor no es el autor del post, devolver un error 401 ( No autroizado )
-  if (!isEditorAuthor) return notAuthorized(res)
+  const isUserAdmin = user.role === 'admin'
+  // Si el editor no es el autor del post o no es administrador, devolver un error 401 ( No autroizado )
+  if (!isEditorAuthor || !isUserAdmin) return notAuthorized(res)
   // Eliminar el post
   deletePostById(postId)
   // Enviar una respuesta satisfactoria
