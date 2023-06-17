@@ -19,6 +19,7 @@ Simple blog developed usign Nodejs,Express and mongoDB.
   - content: Contenido del post
   - likes: Cuantos usuarios le han dado a me gusta y la posibilidad de hacerlo para cada uno de ellos
   - comments: Comentarios añadidos al post por otros usuarios
+  - date: Fecha de publicación del post
 
 # Funcionalidades
 
