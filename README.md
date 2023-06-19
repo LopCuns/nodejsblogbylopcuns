@@ -58,6 +58,7 @@ Server on Render --> https://jlblog.onrender.com
   - /delte/:postId --> Eliminar un post
   - /get-byid/:postId --> Obtener un post por su _id
   - /get-byauthor/:authorId --> Obtener los posts publicados por un usuario
+  - /get-latest --> Obtener los posts más recientes
   - /get?author:authorUsername&title=postTitle --> Obtener un post por el username de su autor y el título del post
 
 # Tecnologías empleadas

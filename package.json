@@ -1,6 +1,6 @@
 {
   "name": "nodejstemplate",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple Nodejs template",
   "main": "src/index.js",
   "type": "module",
