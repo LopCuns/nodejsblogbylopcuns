@@ -15,6 +15,7 @@ import modifyPostController from '#Controllers/posts/post-modify.controller.js'
 import deletePostController from '#Controllers/posts/post-delete.controller.js'
 import getPostByIdController from '#Controllers/posts/post-getById.controller.js'
 import getPostsByAuthorController from '#Controllers/posts/post-getByAuthor.controller.js'
+import getLatestPostController from '#Controllers/posts/post-getLatest.controller.js'
 import getPostByAuthorTitleController from '#Controllers/posts/post-getByAuthorTitle.controller.js'
 
 const postsRouter = express.Router()
@@ -70,7 +71,6 @@ postsRouter.delete(
 // Obtener un post por su _id
 postsRouter.get(
   '/get-byid/:postId',
-  verifyJWT,
   emptyBodyDTO,
   getPostByIdController
 )
@@ -79,6 +79,12 @@ postsRouter.get(
   '/get-byauthor/:authorId',
   emptyBodyDTO,
   getPostsByAuthorController
+)
+// Obtener los posts publicados en el último mes
+postsRouter.get(
+  '/get-latest',
+  emptyBodyDTO,
+  getLatestPostController
 )
 // Obtener un post por su autor y título
 postsRouter.get('/get', emptyBodyDTO, getPostByAuthorTitleController)
