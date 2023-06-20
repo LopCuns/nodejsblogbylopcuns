@@ -33,7 +33,7 @@ const modifyPostDTO = (req, res, next) => {
   if (!isValidDTO) {
     return res
       .status(400)
-      .send({ error: validator.errors.map((error) => error.message) })
+      .send({ errors: validator.errors.map((error) => error.message) })
   }
   // Si el DTO es válido, entonces enviar el control al controlador
   next()
