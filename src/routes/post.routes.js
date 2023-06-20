@@ -41,7 +41,7 @@ postsRouter.post(
   commentPostController
 )
 // Eliminar un comentario
-postsRouter.post(
+postsRouter.delete(
   '/comment-delete/:postId',
   verifyJWT,
   emptyBodyDTO,
