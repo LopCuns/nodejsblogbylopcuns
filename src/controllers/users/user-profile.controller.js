@@ -8,9 +8,9 @@ const userProfileController = async (req, res) => {
   const user = await UserModel.findById(userId).exec()
   // Si no existe dicho usuario,se devuelve un error 401 ( No autorizado )
   if (!user) return notAuthorized(res)
-  // Obtener el username,el email,el role y los posts del usuario
-  const { username, email, role, posts } = user
+  // Obtener los datos del usuario
+  const { username, email, role, posts, likedPosts } = user
   // Enviar los datos del usuario
-  return res.send({ _id: userId, username, email, role, posts })
+  return res.send({ _id: userId, username, email, role, posts, likedPosts })
 }
 export default userProfileController

@@ -53,6 +53,7 @@ Server on Render --> https://jlblog.onrender.com
   - /like/:postId --> Dar me gusta a un post
   - /liked --> Obtener posts a los que se ha dado me gusta
   - /comment/:postId --> Comentar en un post
+  - /comment-edit/:postId --> Editar el comentario publicado en un post
   - /comment-delete/:postId --> Eliminar el comentario publicado en un post
   - /modify/:postId --> Modificar un post
   - /delte/:postId --> Eliminar un post
